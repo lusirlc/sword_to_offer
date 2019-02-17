@@ -23,7 +23,7 @@ public class SwordToOffer {
 	 * 从右上角7开始,数字比7大往下,比7小往左,那么依次对比的顺序是7,4,5,对比三次即可找到答案
 	 */
 	
-	public boolean findNum(int target, int[][] matrix) {// matrix:矩阵
+	public static boolean findNum(int target, int[][] matrix) {// matrix:矩阵
 		//1.对参数进行非空验证
 		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
 			return false;
@@ -67,7 +67,7 @@ public class SwordToOffer {
 	 * @param str
 	 * @return
 	 */
-	public static String replaceSpace1(StringBuffer str) {
+	public static String replaceSpace(StringBuffer str) {
 		// p1指针指向原字符串最后一位
 		int p1 = str.length() - 1;
 		for (int i = 0; i <= p1; i++) {
