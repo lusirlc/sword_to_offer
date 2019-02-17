@@ -1,5 +1,6 @@
 package algorithm;
 
+import model.ListNode;
 import org.junit.Test;
 
 /**
@@ -22,5 +23,29 @@ public class SwordToOfferTest {
 	@Test
 	public void replaceSpace() {
 		System.out.println(SwordToOffer.replaceSpace(new StringBuffer("hello ")));
+	}
+	
+	@Test
+	public void printListFromTailToHead1() {
+		ListNode listNode = new ListNode(1);
+		listNode.next = new ListNode(2);
+		listNode.next.next = new ListNode(3);
+		System.out.println(SwordToOffer.printListFromTailToHead1(listNode));
+	}
+	
+	@Test
+	public void printListFromTailToHead2() {
+		ListNode listNode = new ListNode(1);
+		listNode.next = new ListNode(2);
+		listNode.next.next = new ListNode(3);
+		System.out.println(SwordToOffer.printListFromTailToHead2(listNode));
+	}
+	
+	@Test
+	public void printListFromTailToHead3() {
+		ListNode listNode = new ListNode(1);
+		listNode.next = new ListNode(2);
+		listNode.next.next = new ListNode(3);
+		System.out.println(SwordToOffer.printListFromTailToHead3(listNode));
 	}
 }

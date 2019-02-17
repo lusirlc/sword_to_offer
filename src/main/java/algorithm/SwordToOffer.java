@@ -1,5 +1,10 @@
 package algorithm;
 
+import model.ListNode;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
 /**
  * 剑指offer算法题
  * Created By Chuan Lu On 2019/2/17 14:51
@@ -90,5 +95,70 @@ public class SwordToOffer {
 			}
 		}
 		return str.toString();
+	}
+	
+	/**
+	 * 题目描述
+	 * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+	 *
+	 * 方法1:使用递归
+	 * @param listNode
+	 * @return
+	 */
+	public static ArrayList<Integer> printListFromTailToHead1(ListNode listNode) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (listNode != null) {
+			list.addAll(printListFromTailToHead1(listNode.next));
+			list.add(listNode.val);
+		}
+		return list;
+	}
+	
+	/**
+	 * 题目描述
+	 * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+	 *
+	 * 方法2:使用头插法
+	 * @param listNode
+	 * @return
+	 */
+	public static ArrayList<Integer> printListFromTailToHead2(ListNode listNode) {
+		// 头插法构建逆序列表
+		ListNode head = new ListNode(-1);
+		while (listNode != null) {
+			ListNode memo = listNode.next;
+			listNode.next = head.next;
+			head.next = listNode;
+			listNode = memo;
+		}
+		// 构建ArrayList
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		head = head.next;
+		while (head != null) {
+			list.add(head.val);
+			head = head.next;
+		}
+		return list;
+	}
+	
+	/**
+	 * 题目描述
+	 * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+	 *
+	 * 方法3:使用栈
+	 * @param listNode
+	 * @return
+	 */
+	public static ArrayList<Integer> printListFromTailToHead3(ListNode listNode) {
+		Stack<Integer> stack = new Stack<Integer>();
+		while (listNode != null) {
+			stack.add(listNode.val);
+			listNode = listNode.next;
+		}
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		while (!stack.isEmpty()) {
+			list.add(stack.pop());
+		}
+		return list;
 	}
 }
